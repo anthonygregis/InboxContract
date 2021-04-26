@@ -32,8 +32,10 @@ describe("Inbox", () => {
 
   it('can change the contract message', async () => {
     const newMessage = "Goodbye World";
+
     await inbox.methods.setMessage(newMessage).send({ from: senderAddress });
     const contractMessage = await inbox.methods.message().call();
+
     assert.strictEqual(contractMessage, newMessage);
   });
 });
